@@ -29,7 +29,7 @@
     .sidebar {
       width: 200px;
  margin-top: 70px;
-      background: #333;
+      background: #222;
       padding: 10px;
       box-sizing: border-box;
     }
@@ -46,18 +46,18 @@
     .sidebar button:hover { background: #666; }
 
     /* 지도 박스 */
-    .map-container {
- margin-top: 70px;
-      width: 1400px;
-      height: 800px;
-      overflow: hidden;
-      position: relative;
-      background: #000;
-      touch-action: none;
-      cursor: grab;
-      border-left: 2px solid #666;
-    }
-    .map-container:active { cursor: grabbing; }
+.map-container {
+  width: calc(100vw - 200px); /* 전체 너비 - 사이드바 */
+  height: calc(100vh - 70px); /* 전체 높이 - 타이틀 */
+  margin-top: 70px;
+  overflow: hidden;
+  position: relative;
+  background: #777;
+  touch-action: none;
+  cursor: grab;
+  border-left: 2px solid #666;
+}
+
 
     .map-wrap {
       position: absolute;
@@ -114,7 +114,7 @@
       <button id="resetView">뷰 초기화</button>
     </div>
     <div class="map-wrap" id="mapWrap">
-      <img src="https://8upload.com/image/77fb450631da9adc/map.jpg" alt="지도" id="map">
+      <img src="https://8upload.com/image/b9a77b7dbd588d5e/map.jpg" alt="지도" id="map">
     </div>
   </div>
 
@@ -130,8 +130,8 @@
 
     // 지도 목록
     const maps = {
-      map1: "https://8upload.com/image/77fb450631da9adc/map.jpg",
-      map2: "https://8upload.com/image/015a84efcb865c15/angel.jpg"
+      map1: "https://8upload.com/image/b9a77b7dbd588d5e/map.jpg",
+      map2: "https://8upload.com/image/cbf6676237e0dd4d/angel.jpg"
     };
     let currentMap = "map1";
 
@@ -219,7 +219,7 @@ buttons.forEach(btn => {
 
       const prevScale = scale;
       scale = e.deltaY < 0 ? scale * 1.1 : scale / 1.1;
-      scale = Math.min(Math.max(scale, 1), 5);
+      scale = Math.min(Math.max(scale, 0.2), 5);
 
       translateX = mouseX - (mouseX - translateX) * (scale / prevScale);
       translateY = mouseY - (mouseY - translateY) * (scale / prevScale);
@@ -377,7 +377,6 @@ buttons.forEach(btn => {
   </script>
 </body>
 </html>
-
 
 
 
