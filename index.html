@@ -45,6 +45,21 @@
     }
     .sidebar button:hover { background: #666; }
 
+.link-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #666;   /* 회색 배경 */
+  color: #fff;              /* 흰 글씨 */
+  border-radius: 4px;
+  text-decoration: none;    /* 밑줄 제거 */
+  cursor: pointer;
+  margin-left: 22px;        /* 왼쪽 여백 추가 */
+}
+
+.link-button:hover {
+  background-color: #888;   /* 마우스 올렸을 때 조금 더 밝은 회색 */
+}
+
     /* 지도 박스 */
 .map-container {
   width: calc(100vw - 200px); /* 전체 너비 - 사이드바 */
@@ -105,6 +120,9 @@
   <div class="sidebar">
     <button data-map="map1">마족</button>
     <button data-map="map2">천족</button>
+  <a href="https://tc-imba.com/aion2-interactive-map/?map=World_D_A" target="_blank" class="link-button">
+    정확한 위치 보기
+  </a>
   </div>
 
   <!-- 지도 영역 -->
@@ -377,9 +395,3 @@ buttons.forEach(btn => {
   </script>
 </body>
 </html>
-
-
-
-
-
-
